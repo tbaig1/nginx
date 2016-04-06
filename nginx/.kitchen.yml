@@ -1,0 +1,17 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: centos-6.7
+box: opscode-centos-6.7
+box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_centos-6.7_chef-provisionerless.box
+
+suites:
+  - name: default
+    run_list:
+      - recipe[nginx::default]
+    attributes:
